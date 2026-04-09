@@ -174,7 +174,7 @@ class SkillMetaScanner(BaseScanner):
             nested = nested.get(key, None)
             if not isinstance(nested, dict):
                 return frontmatter
-        return frontmatter
+        return nested
 
     def _check_daemon_persistence(
         self,
