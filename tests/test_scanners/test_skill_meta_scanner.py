@@ -473,7 +473,7 @@ metadata: '{"openclaw":{"requires":{"bins":["image-sprout"]},"homepage":"https:/
         results = self.scanner.scan(skill)
         assert len(results) == 1
 
-    def test_skill_file_metadata_str(self, tmp_path):
+    def test_skill_file_metadata_list(self, tmp_path):
         """
         error metadata format: list 
         https://github.com/openclaw/skills/blob/7f4194d3d605f01c213558e905c617b6f359d806/skills/tjlzw/iaskaster/SKILL.md
