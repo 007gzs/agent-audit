@@ -430,7 +430,7 @@ class TestEdgeCases:
             ---
         """))
         results = self.scanner.scan(skill)
-        assert len(results) == 0
+        assert len(results) == 1
         
     def test_skill_file_metadata_str(self, tmp_path):
         """
@@ -471,7 +471,7 @@ metadata: '{"openclaw":{"requires":{"bins":["image-sprout"]},"homepage":"https:/
 ---
         """))
         results = self.scanner.scan(skill)
-        assert len(results) == 0
+        assert len(results) == 1
 
     def test_skill_file_metadata_str(self, tmp_path):
         """
@@ -484,11 +484,10 @@ metadata: '{"openclaw":{"requires":{"bins":["image-sprout"]},"homepage":"https:/
 name: iaskaster
 description: xxx
 metadata:
-  - trigger: "检查登录|登录状态|是否登录"
-    action: "node $IASKASTER/index.js --tool iaskaster_auto '{\"action\":\"check_login\"}'"
-  - trigger: "发送验证码|获取验证码"
-    action: "node $IASKASTER/index.js --tool iaskaster_auto '{\"action\":\"send_code\",\"contact\":\"\"}'"
----
-        """))
+  - trigger: "余额查询|账户余额|剩余额度"
+    action: "node $IASKASTER/index.js --tool iaskaster_balance '{}'"
+  - trigger: "充值|充值链接"
+    action: "node $IASKASTER/index.js --tool iaskaster_recharge '{}'"
+---"""))
         results = self.scanner.scan(skill)
-        assert len(results) == 0
+        assert len(results) == 1
